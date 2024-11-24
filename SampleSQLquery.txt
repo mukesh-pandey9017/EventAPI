@@ -1,0 +1,12 @@
+Write a custom SQL query to fetch the total tickets sold for all events
+along with eventdetails. The query should optimize for large datasets and
+return the top 3 events by tickets sold.
+
+1)query for grand total of sold_tickets for all events
+Event.object.all().aggregate('total_ticket_sold'=Sum('tickets_sold'))
+
+2)query to fetch the total tickets sold for all events along with eventdetails
+Event.objects.all().order_by("-tickets_sold")
+
+3)query for top 3 events by tickets sold
+Event.objects.all().order_by("-tickets_sold")[:3]
